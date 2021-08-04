@@ -9,6 +9,8 @@ public class CharacterMove : MonoBehaviour
     [SerializeField] private float MaxMoveSpeed = 10;
     private Rigidbody2D rb;
     private int JumpCount = 0;
+    private int RightCount = 0;
+    private int LeftCount = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,21 @@ public class CharacterMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.LeftArrow) && LeftCount < 1)
+        {
+            transform.Translate(-10, 0, 0);
+            LeftCount++;
+            RightCount = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow) && RightCount < 1)
+        {
+            transform.Translate(10, 0, 0);
+            RightCount++;
+            LeftCount = 0;
+
+        }
+
         float speed = Mathf.Abs(this.rb.velocity.x);
 
         if(speed < MaxMoveSpeed)
