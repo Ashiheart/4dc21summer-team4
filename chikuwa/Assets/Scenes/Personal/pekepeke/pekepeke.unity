@@ -239,7 +239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpPower: 9
   MovePower: 5
-  MaxMoveSpeed: 3
+  jump: {fileID: 8300000, guid: 841cbde8427066b4f9277aa48fff70a4, type: 3}
+  item_get: {fileID: 8300000, guid: 7cc2325ff617f2c4d8b95df4e8732339, type: 3}
 --- !u!50 &957929636
 Rigidbody2D:
   serializedVersion: 4
