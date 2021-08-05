@@ -11,10 +11,14 @@ public class CharacterMove : MonoBehaviour
     private int RightCount = 0;
     private int LeftCount = 1;
     private int MaxJump = 0;
+    public AudioClip jump;
+    public AudioClip item_get;
+    AudioSource As;
     // Start is called before the first frame update
     void Start()
     {
         this.rb = GetComponent<Rigidbody2D>();
+        this.As = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,7 +47,8 @@ public class CharacterMove : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))//  もし、スペースキーがおされたなら、  
             {
                 JumpCount++;//  Groundedをfalseにする
-                this.rb.velocity = new Vector3(GetComponent<Rigidbody2D>().velocity.x, JumpPower, 0);    //ジャンプ
+                this.rb.velocity = new Vector3(GetComponent<Rigidbody2D>().velocity.x, JumpPower, 0);   //ジャンプ
+                this.As.PlayOneShot(jump);
             }
         }
     }
@@ -58,6 +63,7 @@ public class CharacterMove : MonoBehaviour
         if (collision.gameObject.tag == "Item")//  もしItemというタグがついたオブジェクトに触れたら、
         {
             MaxJump++;  //ジャンプ回数を増やす
+            this.As.PlayOneShot(item_get);
         }
     }
         
