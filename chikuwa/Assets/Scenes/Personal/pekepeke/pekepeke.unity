@@ -236,8 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e20d3ed73a70984bb7899c4ea8ec021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpPower: 7
-  MovePower: 20
+  JumpPower: 9
+  MovePower: 5
   MaxMoveSpeed: 3
 --- !u!50 &957929636
 Rigidbody2D:
@@ -254,7 +254,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

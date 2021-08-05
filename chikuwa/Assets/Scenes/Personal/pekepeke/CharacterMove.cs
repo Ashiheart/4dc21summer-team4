@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CharacterMove : MonoBehaviour
 {
-    [SerializeField] private float JumpPower = 400;
-    [SerializeField] private float MovePower = 100;
-    [SerializeField] private float MaxMoveSpeed = 10;
+    [SerializeField] private float JumpPower = 9;
+    [SerializeField] private float MovePower = 5;
     private Rigidbody2D rb;
     private int JumpCount = 0;
     private int RightCount = 0;
     private int LeftCount = 1;
+    private int MaxJump = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,32 +22,28 @@ public class CharacterMove : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.LeftArrow) && LeftCount < 1)
         {
-            transform.Translate(-10, 0, 0);
+            transform.Translate(-10, 0, 0);     //左ワープ
             LeftCount++;
             RightCount = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow) && RightCount < 1)
         {
-            transform.Translate(10, 0, 0);
+            transform.Translate(10, 0, 0);      //右ワープ
             RightCount++;
             LeftCount = 0;
 
         }
 
-        float speed = Mathf.Abs(this.rb.velocity.x);
 
-        if(speed < MaxMoveSpeed)
-        {
-            this.rb.AddForce(transform.right * MovePower);
-        }
+        this.rb.velocity = new Vector3(MovePower,GetComponent<Rigidbody2D>().velocity.y, 0);    //右移動
 
-        if (JumpCount <= 1)//  もし、Groundedがtrueなら、
+        if (JumpCount <= MaxJump)//  もし、Groundedがtrueなら、
         {
             if (Input.GetKeyDown(KeyCode.Space))//  もし、スペースキーがおされたなら、  
             {
                 JumpCount++;//  Groundedをfalseにする
-                this.rb.AddForce(Vector3.up * JumpPower,ForceMode2D.Impulse);//  上にJumpPower分力をかける
+                this.rb.velocity = new Vector3(GetComponent<Rigidbody2D>().velocity.x, JumpPower, 0);    //ジャンプ
             }
         }
     }
@@ -57,6 +53,11 @@ public class CharacterMove : MonoBehaviour
         if (collision.gameObject.tag == "Ground")//  もしGroundというタグがついたオブジェクトに触れたら、
         {
             JumpCount = 0;//  Groundedをtrueにする
+        }
+
+        if (collision.gameObject.tag == "Item")//  もしItemというタグがついたオブジェクトに触れたら、
+        {
+            MaxJump++;  //ジャンプ回数を増やす
         }
     }
         
