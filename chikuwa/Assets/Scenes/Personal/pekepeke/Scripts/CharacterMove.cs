@@ -17,7 +17,8 @@ public class CharacterMove : MonoBehaviour
     public AudioClip damage;
     AudioSource As;
     public Transform target;
-    private int hp = 5;
+
+    public int hp = 5;
 
     void Start()
     {
