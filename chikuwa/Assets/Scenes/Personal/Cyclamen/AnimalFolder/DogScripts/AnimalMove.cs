@@ -26,10 +26,6 @@ public class AnimalMove : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown("space"))//spaceキーを押したときにPinchを呼び出します。テスト用なので後で消すこと
-        {
-            Pinch(timer, pos);//Pinchを呼び出します。
-        }
         switch (pinchfaze)
         {
             //初速がある時の動き、初速0の時は何もしません。
@@ -69,7 +65,6 @@ public class AnimalMove : MonoBehaviour
             case 4:
                 pinchfaze = 0;
                 pinchtime = 0;
-                pinchfaze = 0;
                 break;
             default:
                 break;
