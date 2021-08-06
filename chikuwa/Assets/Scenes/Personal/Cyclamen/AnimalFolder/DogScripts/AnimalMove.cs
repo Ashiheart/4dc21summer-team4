@@ -13,11 +13,16 @@ public class AnimalMove : MonoBehaviour
     [SerializeField] public float backpos; //ピンチの後に戻る位置、
     public float pinchfaze = 0;//caseの推移に使います。この値が変わるとcaseが推移し動作が変わります。
     public float pinchtime = 0;//ピンチになったとき、時間を計測するのに使います。
+    //効果音関連
+    public AudioClip soundBark;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         //初期位置を決めます。
         transform.position = new Vector3(InitPosition, 0, 0);
+
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -76,6 +81,8 @@ public class AnimalMove : MonoBehaviour
         if (pinchfaze == 0)
         {
             pinchfaze = 1;
+
+            audioSource.PlayOneShot(soundBark);
         }
 
     }
