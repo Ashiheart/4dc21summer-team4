@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class CharacterMove : MonoBehaviour
+public class BigtikuwaMove : MonoBehaviour
 {
     [SerializeField] private float JumpPower = 9;
     [SerializeField] private float MovePower = 5;
@@ -11,29 +10,27 @@ public class CharacterMove : MonoBehaviour
     private int JumpCount = 0;
     private int RightCount = 0;
     private int LeftCount = 1;
-    private int MaxJump = 0;
+    private int MaxJump = 3;
     public AudioClip jump;
     public AudioClip item_get;
     public AudioClip damage;
     AudioSource As;
-    public Transform target;
-    private int hp = 5;
+    private int hp = 10;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         As = GetComponent<AudioSource>();
-        
-    }
+}
 
-    //　操作キャラクター変更メソッド
     
+
 
 
     // Update is called once per frame
     void Update()
     {
-        target.transform.position = this.transform.position;
         if (Input.GetKeyDown(KeyCode.LeftArrow) && LeftCount < 1)
         {
             transform.Translate(-10, 0, 0);     //左ワープ
@@ -50,7 +47,7 @@ public class CharacterMove : MonoBehaviour
         }
 
 
-        this.rb.velocity = new Vector3(MovePower,GetComponent<Rigidbody2D>().velocity.y, 0);    //右移動
+        this.rb.velocity = new Vector3(MovePower, GetComponent<Rigidbody2D>().velocity.y, 0);    //右移動
 
         if (JumpCount <= MaxJump)//  もし、Groundedがtrueなら、
         {
@@ -76,12 +73,6 @@ public class CharacterMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Item")//  もしItemというタグがついたオブジェクトに触れたら、
         {
-            MaxJump++; //ジャンプ回数を増やす
-            if(MaxJump == 3)
-            {
-                GetComponent<CharacterChange>().ChangeCharacter(0);
-            }
-
             As.PlayOneShot(item_get);
             Destroy(collision.gameObject);
         }
@@ -97,10 +88,9 @@ public class CharacterMove : MonoBehaviour
             }
         }
 
-        if(collision.gameObject.tag == "Animal")
+        if (collision.gameObject.tag == "Animal")
         {
             SceneManager.LoadScene("GameOver");
         }
     }
-
 }
