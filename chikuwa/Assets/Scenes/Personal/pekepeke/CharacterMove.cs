@@ -60,11 +60,17 @@ public class CharacterMove : MonoBehaviour
             JumpCount = 0;//  Groundedをtrueにする
         }
 
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.tag == "Item")//  もしItemというタグがついたオブジェクトに触れたら、
         {
             MaxJump++;  //ジャンプ回数を増やす
             this.As.PlayOneShot(item_get);
+            Destroy(collision.gameObject);
         }
     }
-        
+
 }
