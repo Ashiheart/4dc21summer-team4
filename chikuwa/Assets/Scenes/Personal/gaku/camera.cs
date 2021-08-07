@@ -13,6 +13,7 @@ public class camera: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("セット");
         if (!GetComponent<Renderer>().isVisible)
         {
             Destroy(this.gameObject);
