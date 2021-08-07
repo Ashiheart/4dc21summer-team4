@@ -15,7 +15,7 @@ public class BigtikuwaMove : MonoBehaviour
     public AudioClip item_get;
     public AudioClip damage;
     AudioSource As;
-    private int hp = 10;
+    public int hp = 10;
 
 
     void Start()
