@@ -12,16 +12,26 @@ public class SelectButton2 : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(choose);
     }
 
+    private void Retry()
+    {
+        SceneManager.LoadScene("InGame");
+    }
+
+    private void Title()
+    {
+        SceneManager.LoadScene("Title");
+    }
+
     public void ClickRetryGame()
     {
         GetComponent<AudioSource>().PlayOneShot(down);
-        SceneManager.LoadScene("InGame");
+        Invoke("Retry", 1f);
     }
 
     public void ClickTitleGame()
     {
         GetComponent<AudioSource>().PlayOneShot(down);
-        SceneManager.LoadScene("Title");
+        Invoke("Title", 1f);
     }
 }
 
