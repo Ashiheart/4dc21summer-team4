@@ -49,10 +49,6 @@ public class randam : MonoBehaviour
         {
             Invoke("Make", 1.25f);
         }
-        if (count >= 79)
-        {
-            Invoke("Make", 1f);
-        }
         count++;
         
     }
