@@ -21,6 +21,7 @@ public class SmallChikuwaHpAsGlue : MonoBehaviour
         SmallChikuwaStatus
             .ObserveEveryValueChanged(s => s.hp)
             .Subscribe(hp => ChikuwaHp._currentHitPoint.Value = hp)
+            .AddTo(this);
             ;
     }
 

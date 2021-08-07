@@ -20,7 +20,8 @@ public class BigChikuwaHpAsGlue : MonoBehaviour
 
         BigChikuwaStatus
             .ObserveEveryValueChanged(b => b.hp)
-            .Subscribe(hp => ChikuwaHp._currentHitPoint.Value = hp);
+            .Subscribe(hp => ChikuwaHp._currentHitPoint.Value = hp)
+            .AddTo(this)
             ;
     }
 

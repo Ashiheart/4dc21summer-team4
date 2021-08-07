@@ -13,6 +13,7 @@ public class HideCredit : MonoBehaviour
             .Subscribe(_ =>
                 GameObject.Find("Credit").GetComponent<SpriteRenderer>().enabled = false
             )
+            .AddTo(this)
             ;
     }
 

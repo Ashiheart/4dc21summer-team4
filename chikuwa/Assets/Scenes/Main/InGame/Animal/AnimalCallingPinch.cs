@@ -16,7 +16,11 @@ public class AnimalCallingPinch : MonoBehaviour
 
         chikuwaHp
             .CurrentHitPoint
+            .Zip(chikuwaHp.CurrentHitPoint.Skip(1), (Old, New) => new { Old, New })
+            .Where(z => z.Old - z.New == 1)
+            .Do(z => Debug.Log(z.New + ", " + z.Old))
             .Subscribe(_ => animalMove.Pinch(animalMove.timer, animalMove.pos))
+            .AddTo(this)
             ;
     }
 
