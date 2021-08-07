@@ -7,11 +7,11 @@ public class CharacterMove : MonoBehaviour
 {
     [SerializeField] private float JumpPower = 9;
     [SerializeField] private float MovePower = 5;
-    private Rigidbody2D rb;
-    private int JumpCount = 0;
-    private int RightCount = 0;
-    private int LeftCount = 1;
-    private int MaxJump = 0;
+    public Rigidbody2D rb;
+    public int JumpCount = 0;
+    public int RightCount = 0;
+    public int LeftCount = 1;
+    public int MaxJump = 0;
     public AudioClip jump;
     public AudioClip item_get;
     public AudioClip damage;
