@@ -12,18 +12,35 @@ public class SelectButton : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(choose);
     }
 
-    public void ClickStartGame()
+    private void Ingame()
     {
         SceneManager.LoadScene("InGame");
     }
 
-    public void ClickEndGame()
+    private void Endgame()
     {
         ExitGame.ExitImm();
     }
 
+    private void credit()
+    {
+        SceneManager.LoadScene("Credit");
+    }
+    public void ClickStartGame()
+    {
+        GetComponent<AudioSource>().PlayOneShot(down);
+        Invoke("Ingame", 1f);
+    }
+
+    public void ClickEndGame()
+    {
+        GetComponent<AudioSource>().PlayOneShot(down);
+        Invoke("Endgame", 1f);
+    }
+
     public void ClickShowCredit()
     {
-        GameObject.Find("Credit").GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<AudioSource>().PlayOneShot(down);
+        Invoke("credit", 1f);
     }
 }

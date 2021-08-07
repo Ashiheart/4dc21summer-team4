@@ -20,20 +20,39 @@ public class HpGauge : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (chikuwaHp == null) Debug.LogError("chikuwaHp null");
+
+        if (chikuwaLife== null) Debug.LogError("chikuwaLife null");
+
+
+        HpLifes = new List<GameObject>();
+
+        for(int i = 0; i < 10; i++)
+        {
+            var cw = Instantiate(chikuwaLife);
+            cw.transform.position = initHpShow + showStep * i;
+            cw.GetComponent<SpriteRenderer>().enabled = true;
+
+            HpLifes.Add(cw);
+        }
+
         chikuwaHp
             .MaxHitPoint
             .Subscribe(n =>
             {
-                HpLifes = new List<GameObject>();
                 for (int i = 0; i < n; i++)
                 {
-                    HpLifes.Add(Instantiate(chikuwaLife));
-                    HpLifes.Last().transform.position = initHpShow + showStep * i;
-                    HpLifes.Last().GetComponent<SpriteRenderer>().enabled = true;
+                    HpLifes[i].GetComponent<SpriteRenderer>().enabled = true;
+                }
+                for(int i = n; i < HpLifes.Count; i++)
+                {
+                    HpLifes[i].GetComponent<SpriteRenderer>().enabled = false;
                 }
             }
             )
+            .AddTo(this)
             ;
+
 
         chikuwaHp
             .CurrentHitPoint
@@ -49,6 +68,7 @@ public class HpGauge : MonoBehaviour
                 }
             }
             )
+            .AddTo(this)
             ;
     }
 
