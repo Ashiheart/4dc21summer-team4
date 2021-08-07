@@ -2,20 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class camera: MonoBehaviour
+public class camerayobi : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Update", 3f);
+        StartCoroutine("Coroutine");
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    private IEnumerator Coroutine()
+    {
+        Debug.Log("Start");
+
+        yield return new WaitForSeconds(6f);
+
         if (!GetComponent<Renderer>().isVisible)
         {
             Destroy(this.gameObject);
         }
+
+        yield break;
     }
 }

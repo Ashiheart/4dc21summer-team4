@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8176916698672106351}
   - component: {fileID: -9083586065768062601}
   - component: {fileID: 8145826421791046183}
+  - component: {fileID: 6288788671533598542}
   m_Layer: 0
   m_Name: manaita
   m_TagString: Untagged
@@ -168,8 +169,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9040828124047633781}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7caa7fbdb0262c4b911172b3c60df53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6288788671533598542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9040828124047633781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e057dccad361340b6618f19794aa05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

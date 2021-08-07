@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 1308664586758042648}
   - component: {fileID: 6099772449844906696}
   - component: {fileID: -2698457688968147531}
+  - component: {fileID: -3782449609114365034}
+  - component: {fileID: 6873162897972791567}
   m_Layer: 0
   m_Name: tamago
   m_TagString: Untagged
@@ -168,8 +170,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004645220434756867}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7caa7fbdb0262c4b911172b3c60df53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3782449609114365034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004645220434756867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e057dccad361340b6618f19794aa05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6873162897972791567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004645220434756867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e057dccad361340b6618f19794aa05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
