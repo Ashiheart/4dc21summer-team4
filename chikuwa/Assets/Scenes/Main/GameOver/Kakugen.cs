@@ -10,7 +10,7 @@ public class Kakugen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        i = Random.Range(0, 6);
+        i = Random.Range(0, 14);
         if(i == 0)
         {
             kakugen.text = "ちくわをのぞく時、ちくわもまたこちらをのぞいているのだ";
@@ -44,6 +44,41 @@ public class Kakugen : MonoBehaviour
         if (i == 6)
         {
             kakugen.text = "ちくわ";
+        }
+
+        if(i == 7)
+        {
+            kakugen.text = "ちくわの中身をのぞいてしまった男の子の名前は\n田中奏生(たなかかなう)";
+        }
+
+        if(i == 8)
+        {
+            kakugen.text = "ちくわしかもってねぇ！！";
+        }
+
+        if (i == 9)
+        {
+            kakugen.text = "きみはどうあがいてもちくわ";
+        }
+
+        if (i == 10)
+        {
+            kakugen.text = "必殺・ちくわの穴から生クリーム光線";
+        }
+
+        if (i == 11)
+        {
+            kakugen.text = "鳥取県倉吉市にある喫茶店でちくわパフェが食べれる";
+        }
+
+        if (i == 12)
+        {
+            kakugen.text = "札幌市白石区どんぐり 本店がちくわパンの発祥地";
+        }
+
+        if (i == 13)
+        {
+            kakugen.text = "ちくわぶはちくわじゃない";
         }
     }
 
