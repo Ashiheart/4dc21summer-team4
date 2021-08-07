@@ -27,11 +27,11 @@ public class randam : MonoBehaviour
         number = Random.Range(0, Meteo.Length);
         Instantiate(Meteo[number], transform.position + randomPos, transform.rotation);
         if (count >= 0 && count <= 10)
-        { Invoke("Make", 3f);
+        { Invoke("Make", 2.5f);
         }
         if(count >=11 && count <=23)
         {
-          Invoke("Make", 2.5f);
+          Invoke("Make", 2.25f);
          }
         if (count >= 24 && count<=39)
         {
