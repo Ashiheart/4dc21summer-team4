@@ -8,6 +8,7 @@ TagManager:
   - Animal
   - TestChikuwa
   - Item
+  - Obstacle
   layers:
   - Default
   - TransparentFX
