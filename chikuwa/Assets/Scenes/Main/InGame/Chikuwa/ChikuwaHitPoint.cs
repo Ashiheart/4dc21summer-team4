@@ -10,7 +10,7 @@ public class ChikuwaHitPoint : MonoBehaviour
 
     public IntReactiveProperty _currentHitPoint;
 
-    public IReadOnlyReactiveProperty<int> CurrentHitPoint;
+    public IReadOnlyReactiveProperty<int> CurrentHitPoint => _currentHitPoint;
 
     public IReadOnlyReactiveProperty<int> MaxHitPoint => _maxHitPoint;
 
@@ -20,7 +20,12 @@ public class ChikuwaHitPoint : MonoBehaviour
 
         _currentHitPoint = new IntReactiveProperty();
 
-        CurrentHitPoint = _currentHitPoint.Where(hp => hp < MaxHitPoint.Value).ToReadOnlyReactiveProperty<int>();
+        /*
+        CurrentHitPoint = _currentHitPoint
+            .Where(hp => hp < _maxHitPoint.Value)
+            .Do(_ => Debug.Log("debug: " + _maxHitPoint.Value))
+            .ToReadOnlyReactiveProperty<int>();
+        */
     }
 
     // Start is called before the first frame update
