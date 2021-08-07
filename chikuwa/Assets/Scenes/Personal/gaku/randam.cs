@@ -29,15 +29,31 @@ public class randam : MonoBehaviour
         if (count >= 0 && count <= 10)
         { Invoke("Make", 3f);
         }
-        if(count >=11 && count <=20)
+        if(count >=11 && count <=23)
         {
           Invoke("Make", 2.5f);
          }
-        if (count >= 21)
+        if (count >= 24 && count<=39)
         {
             Invoke("Make", 2f);
         }
-            count++;
+        if (count >= 40 && count <= 57)
+        {
+            Invoke("Make", 1.75f);
+        }
+        if (count >= 58 && count <= 78)
+        {
+            Invoke("Make", 1.5f);
+        }
+        if (count >= 58 && count <= 78)
+        {
+            Invoke("Make", 1.25f);
+        }
+        if (count >= 79)
+        {
+            Invoke("Make", 1f);
+        }
+        count++;
         
     }
 }
